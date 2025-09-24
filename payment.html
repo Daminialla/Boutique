@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment • Lavender Lane</title>
+  <script>window.dataLayer=window.dataLayer||[];dataLayer.push({'page':'payment','event':'page_view'});</script>
+  <style>
+    :root{--accent:#8b5cf6;--muted:#6b7280}
+    body{margin:0;font-family:Inter,system-ui;background:#f9fafb;color:#111;display:flex;flex-direction:column;min-height:100vh}
+    header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+    .logo{font-weight:700;color:var(--accent);text-decoration:none;font-size:20px}
+    main{flex:1;display:grid;place-items:center;padding:40px}
+    form{background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,0.06);padding:24px;max-width:420px;width:100%;display:flex;flex-direction:column;gap:16px}
+    h1{margin:0 0 8px;font-size:24px}
+    label{font-size:14px;color:var(--muted)}
+    input{padding:10px;border:1px solid #ddd;border-radius:8px;font-size:15px;width:100%}
+    button{background:var(--accent);color:#fff;padding:12px;border:none;border-radius:10px;font-size:16px;cursor:pointer;font-weight:600}
+    button:hover{background:#7c3aed}
+    .summary{background:#f9fafb;border:1px dashed #ddd;padding:12px;border-radius:8px;font-size:14px}
+    footer{text-align:center;padding:20px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="index.html">Lavender Lane</a>
+    <nav><a href="form.html" style="text-decoration:none;color:var(--muted)">Back</a></nav>
+  </header>
+  <main>
+    <form id="paymentForm">
+      <h1>Payment</h1>
+      <div class="summary" id="orderSummary">Loading...</div>
+      <div>
+        <label>Card Number</label>
+        <input type="text" id="cardNumber" required />
+      </div>
+      <div>
+        <label>Expiry Date</label>
+        <input type="text" id="expiryDate" placeholder="MM/YY" required />
+      </div>
+      <div>
+        <label>CVV</label>
+        <input type="password" id="cvv" required />
+      </div>
+      <button type="submit">Proceed to Pay</button>
+    </form>
+  </main>
+  <footer>© Lavender Lane</footer>
+  <script>
+    const prodJSON=localStorage.getItem('ll_selected_product');
+    const userName=localStorage.getItem('ll_user_fullname');
+    const orderSummary=document.getElementById('orderSummary');
+    if(prodJSON){
+      const prod=JSON.parse(prodJSON);
+      orderSummary.textContent=`${userName?userName+' – ':''}${prod.name} – ₹${prod.price}`;
+    }else{
+      orderSummary.textContent='No product selected';
+    }
+    document.getElementById('paymentForm').addEventListener('submit',function(e){
+      e.preventDefault();
+      dataLayer.push({event:'add_payment_info'});
+      window.location.href='thankyou.html';
+    });
+  </script>
+</body>
+</html>
