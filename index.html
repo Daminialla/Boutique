@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavender Lane • Food Court Boutique</title>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    dataLayer.push({ 'page': 'index', 'event': 'page_view' });
+  </script>
+  <style>
+    :root{--bg:#f7f5ff;--card:#fff;--accent:#8b5cf6;--muted:#6b7280}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,var(--bg),#fff);color:#111}
+    header{padding:28px 24px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#c4b5fd,#a78bfa);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    .tag{color:var(--muted);font-size:14px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;padding:24px;align-items:center}
+    .hero-left{padding:28px;border-radius:16px;background:linear-gradient(180deg,rgba(139,92,246,0.08),rgba(139,92,246,0.02));}
+    h1{margin:0;font-size:32px}
+    p.lead{color:var(--muted);margin:12px 0 20px}
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(139,92,246,0.14)}
+    .hero-right{background:transparent;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+    .promo{background:#fff;padding:14px;border-radius:12px;box-shadow:0 6px 20px rgba(16,24,40,0.06)}
+    .products{padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 8px 22px rgba(16,24,40,0.06);display:flex;flex-direction:column;gap:10px;transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(16,24,40,0.12)}
+    .thumb{height:160px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#f3f4f6}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .pname{font-weight:700}
+    .pdesc{color:var(--muted);font-size:13px}
+    .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+    .price{font-weight:800}
+    .buy{background:linear-gradient(90deg,var(--accent),#7c3aed);color:#fff;padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+    footer{padding:28px 24px;color:var(--muted);font-size:14px;text-align:center}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.hero-right{order:2}.hero-left{order:1}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">LL</div>
+      <div>
+        <div style="font-weight:700">Lavender Lane</div>
+        <div class="tag">A modern food-court boutique for stylish bites</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#products" style="text-decoration:none;color:var(--muted);margin-right:12px">Menu</a>
+      <a href="form.html" style="text-decoration:none;color:var(--muted)">Cart</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Fresh eats. Modern style.</h1>
+        <p class="lead">Curated bites and fashion-forward takes — a boutique food court experience with premium packaging and delightful flavors.</p>
+        <a class="cta" href="#products" id="shopNow">Shop Now</a>
+      </div>
+      <aside class="hero-right">
+        <div class="promo"><strong>Special Launch Offer</strong>
+          <div style="color:var(--muted);font-size:13px;margin-top:6px">Free dessert with every order above ₹999 • Limited time</div>
+        </div>
+        <div class="promo" style="display:flex;gap:10px;align-items:center">
+          <img src="https://via.placeholder.com/80x80.png?text=Chef" alt="chef" style="border-radius:8px" />
+          <div>
+            <div style="font-weight:700">Chef's Pick</div>
+            <div class="tag">Seasonal flavors curated weekly</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+    <section id="products" class="products"></section>
+  </main>
+  <footer>© <span id="year"></span> Lavender Lane • Crafted with care</footer>
+  <script>
+    const products = [
+      {id:'p1',name:'Classic Tiffin Wrap',price:249,desc:'Soft flatbread filled with spiced veg & chutney',img:'https://via.placeholder.com/400x320?text=Wrap'},
+      {id:'p2',name:'Teriyaki Bento',price:499,desc:'Savoury teriyaki chicken with seasonal sides',img:'https://via.placeholder.com/400x320?text=Bento'},
+      {id:'p3',name:'Mediterranean Salad',price:349,desc:'Crunchy greens, olives & herbed dressing',img:'https://via.placeholder.com/400x320?text=Salad'},
+      {id:'p4',name:'Spiced Falafel Box',price:299,desc:'Crispy falafel with tahini dip',img:'https://via.placeholder.com/400x320?text=Falafel'},
+      {id:'p5',name:'Gourmet Burger',price:399,desc:'Premium patty, melted cheese & house sauce',img:'https://via.placeholder.com/400x320?text=Burger'},
+      {id:'p6',name:'Sweet Lavender Cake',price:199,desc:'Moist cake with subtle lavender note',img:'https://via.placeholder.com/400x320?text=Cake'}
+    ];
+    const container=document.querySelector('.products');
+    products.forEach(p=>{
+      const card=document.createElement('article');card.className='card';
+      card.innerHTML=`<div class="thumb"><img src="${p.img}" alt="${p.name}"></div>
+        <div class="pname">${p.name}</div>
+        <div class="pdesc">${p.desc}</div>
+        <div class="price-row"><div class="price">₹${p.price}</div>
+          <button class="buy" data-id="${p.id}">Buy Now</button></div>`;container.appendChild(card);
+    });
+    document.getElementById('year').textContent=new Date().getFullYear();
+    document.querySelectorAll('.buy').forEach(btn=>btn.addEventListener('click',e=>{
+      const id=e.currentTarget.dataset.id;
+      const prod=products.find(x=>x.id===id);
+      localStorage.setItem('ll_selected_product',JSON.stringify(prod));
+      if(window.dataLayer){dataLayer.push({event:'select_item',ecommerce:{items:[{item_id:prod.id,item_name:prod.name,price:prod.price}]}});}
+      window.location.href='form.html';
+    }));
+    document.getElementById('shopNow').addEventListener('click',()=>{dataLayer.push({event:'cta_click',cta:'shopNow'});});
+    dataLayer.push({event:'index_page_view',page_title:document.title});
+  </script>
+</body>
+</html>
